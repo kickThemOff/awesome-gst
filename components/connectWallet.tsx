@@ -1,8 +1,34 @@
-export default function ConnectWallet() {
-    return (
-      <div className="p-4 bg-gray-800 text-white rounded-lg">
-        <p>Wallet connection functionality will be added later.</p>
-      </div>
-    );
-  }
-  
+import {
+  ConnectWallet,
+  Wallet,
+  WalletDropdown,
+  WalletDropdownDisconnect,
+} from '@coinbase/onchainkit/wallet';
+import {
+  Address,
+  Avatar,
+  Name,
+  Identity,
+} from '@coinbase/onchainkit/identity';
+import { color } from '@coinbase/onchainkit/theme';
+ 
+export default function connectWallet() {
+  return (
+    <div className="flex justify-end">
+      <Wallet>
+        <ConnectWallet>
+          <Avatar className="h-6 w-6" />
+          <Name />
+        </ConnectWallet>
+        <WalletDropdown>
+          <Identity className="px-4 pt-3 pb-2" hasCopyAddressOnClick>
+            <Avatar />
+            <Name />
+            <Address className={color.foregroundMuted} />
+          </Identity>
+          <WalletDropdownDisconnect />
+        </WalletDropdown>
+      </Wallet>
+    </div>
+  );
+}
