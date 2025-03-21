@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/kickThemOff/awesome-gst#readme",
   "dependencies": {
+    "@coinbase/onchainkit": "^0.38.0",
     "autoprefixer": "^10.4.21",
     "ethers": "^6.13.5",
     "next": "^15.2.3",
