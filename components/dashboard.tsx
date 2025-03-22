@@ -1,6 +1,5 @@
 "use client";
 
-import { parseEther } from "ethers";
 import { Contract } from "ethers";
 import { BrowserProvider } from "ethers";
 import {CONTRACT_ADDRESS, ABI } from './Contract'
@@ -8,7 +7,7 @@ import {CONTRACT_ADDRESS, ABI } from './Contract'
 function Invoice() {
 
     const invoices = [
-        { id: 1, amount: "1781.31", from: "Smith.co" },
+        { id: 1, amount: "281.31", from: "Smith.co" },
         { id: 2, amount: "2399.99", from: "TechWorld" },
         { id: 3, amount: "1250.75", from: "GadgetStore" },
     ];
@@ -20,7 +19,7 @@ function Invoice() {
     ];
 
     const fixedAddress = "0x660594b90a8ea7F1D0b43bEAB4Fe3c734dc20A7A"; // Replace with the actual Ethereum address
-    const fixedAmount = 1781310000; // Adjust amount as needed
+    const fixedAmount = 281310000; // Adjust amount as needed
 
     // Function to handle the transaction
     async function handlePayment() {
