@@ -77,6 +77,8 @@ export default function Header() {
 
     return (
         <nav className="nav-container">
+            {/* Tax-Free Header outside the container */}
+            <h1 className="tax-free-header">WhyDefi</h1>
             <div className="menu-bars">
                 <a href="#" className="nav-link">GSTFi</a>
                 <a href="#" className="nav-link">Transactions</a>
