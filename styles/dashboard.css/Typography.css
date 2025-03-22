@@ -1,0 +1,20 @@
+h1 {
+    color: black;
+    width: 674px;
+    height: 0px;
+    top: 0px;
+    left: 50px;
+    gap: 1px;
+    border-radius: 16px;
+    padding: 16px;
+  
+  }
+
+  .color {
+    color:black;
+    font-family: Helvetica;
+  }
+
+  .update-color{
+    color: #A0AEC0;
+  }

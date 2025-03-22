@@ -1,0 +1,23 @@
+.invoice-area {
+    display: flex;                /* Enables flexbox layout */
+    flex-direction: column;       /* Stacks items vertically */
+    justify-content: space-between;
+    width: 662px;                 /* Set width */
+    padding: 9px 22px;            /* Adds padding */
+    box-sizing: border-box;       /* Includes padding in width */
+    background: #F8F9FA;          /* Background color */
+    border-radius: 16px;          /* Optional rounded corners */
+    margin-top: 10px;             /* Adds space between header and invoice */
+  }
+
+  .invoice-heading{
+    display: flex;
+    
+    color: rgb(0, 0, 0);
+    font-family: Helvetica;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 140%;
+    justify-content: space-between;
+  }

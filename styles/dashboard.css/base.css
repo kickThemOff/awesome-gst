@@ -1,0 +1,19 @@
+/* Global Styles */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+main{
+    display: flex;
+    flex-direction: column;
+    color: black;
+    padding-left: 20px;
+}
+
+body {
+    background: #F8F9FA;  
+    margin: 0;  
+    padding: 0;  
+    text-align: left;
+  
+  }
