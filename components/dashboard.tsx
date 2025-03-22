@@ -79,22 +79,26 @@ function Invoice() {
 
             {transaction.map((transaction) => (
             <div key={transaction.id} className="transaction-container">
-                <p>
-                    <span className="amount">{transaction.name}</span> 
-                    <span className="currency"></span>
-                </p>
-                <div className="smaller-container">
+              
+                    <div className="transaction-container">
+                        <div className="transaction-heading">
+
+                        <span>
+                            <span className="amount">{transaction.name}</span>
+
+                        </span>  
+                            <div className="time">
+                                {transaction.timestamp}
+                            </div>
+                        </div>
+                    <div>
                     <span className={`amount ${transaction.GST.startsWith('+') ? 'green-text' : 'red-text'}`}>
                         {transaction.GST}
                     </span>
-                        <div className="time">
-                           {transaction.timestamp}
-                        </div>
-
-                    <div className="amount">
-                        Main Account: {transaction.amount}
-                    </div>
-                    
+                        <span className="amount">
+                            Main Account: {transaction.amount}
+                        </span>
+                       </div> 
                 </div>
             </div>
             ))}

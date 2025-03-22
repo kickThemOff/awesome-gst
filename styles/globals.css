@@ -36,7 +36,8 @@ body {
 .child-container {
     background-color: white;      /* Green background for items */
     color: white;                   /* White text */
-    padding: 6px;                   /* Padding inside each item */
+    padding: 6px;  
+    margin: 8px;                 /* Padding inside each item */
     font-size: 16px;                 /* Text size */
     flex: 10px;                 /* Flex-grow, flex-shrink, flex-basis */
     border-radius: 16px;
@@ -65,7 +66,9 @@ body {
 .smaller-container {
     background-color: #ffffff;      /* Green background for items */
     color: white;                   /* White text */
-    padding: 20px;                   /* Padding inside each item */
+    padding: 
+    20px;   
+    margin: 8px;                /* Padding inside each item */
     font-size: 16px;                 /* Text size */
     flex: 10px;                 /* Flex-grow, flex-shrink, flex-basis */
     border-radius: 16px;
@@ -203,3 +206,66 @@ h1 {
       transition: background-color 0.3s ease;
       min-width: 150px;                /* Minimum width for items */
     }
+
+        .nav-container {
+          display: flex;
+          width: 1200px;
+
+          justify-content: space-between;
+          align-items: center;
+          padding: 20px 20px 20px 60px;
+          /* 根据需要调整内边距 */
+          background-color: #f8f9fa;
+          /* 根据需要设置背景色 */
+        }
+    
+        .left-content {
+          display: flex;
+          /* align-items: center; */
+        }
+    
+        .right-content {
+          display: flex;
+          align-items: right;
+          padding: 30px;
+        }
+    
+        .tax-free-header {
+          margin: 0;
+          font-size: 24px;
+          /* 根据需要调整字体大小 */
+          color: #333;
+          /* 根据需要设置字体颜色 */
+        }
+
+.transaction-container {
+  background-color: #ffffff;
+  /* White background for items */
+  color: black;
+  /* Black text */
+  padding: 20px;
+  /* Padding inside each item */
+  margin: 8px;
+  font-size: 16px;
+  /* Text size */
+  flex: 10px;
+  /* Flex-grow, flex-shrink, flex-basis */
+  border-radius: 16px;
+  text-align: left;
+  /* Align text inside each item */
+  width: 655px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.right-align {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.time {
+  color: grey;
+  font-size: 12px;
+}
