@@ -13,9 +13,9 @@ export default function Header() {
             if (window.ethereum) {
                 // Request wallet connection
                 await window.ethereum.request({ method: 'eth_requestAccounts' });
-                const provider = new ethers.providers.Web3Provider(window.ethereum);
-                const signer = provider.getSigner();
-                const address = await signer.getAddress();
+                const provider = new ethers.BrowserProvider(window.ethereum);
+                const signer = await provider.getSigner();
+                const address = signer.getAddress();
                 console.log('Wallet connected:', address);
 
                 const contract = new ethers.Contract(CONTRACT_ADDRESS, ABI, signer);
@@ -24,9 +24,9 @@ export default function Header() {
                     // Read tax info first to verify contract is accessible
                     const taxInfo = await contract.taxInfo();
                     console.log('Tax Info:', {
-                        gstBalance: ethers.utils.formatEther(taxInfo.gstBalance),
-                        mainBalance: ethers.utils.formatEther(taxInfo.mainBalance),
-                        defiBalance: ethers.utils.formatEther(taxInfo.defiBalance)
+                        gstBalance: ethers.formatEther(taxInfo.gstBalance),
+                        mainBalance: ethers.formatEther(taxInfo.mainBalance),
+                        defiBalance: ethers.formatEther(taxInfo.defiBalance)
                     });
 
                     // Check if payment has been received
