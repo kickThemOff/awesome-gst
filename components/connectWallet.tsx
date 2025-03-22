@@ -6,6 +6,7 @@ import {
   Wallet,
   WalletDropdown,
   WalletDropdownDisconnect,
+
 } from '@coinbase/onchainkit/wallet';
 import {
   Address,
@@ -13,21 +14,18 @@ import {
   Name,
   Identity,
 } from '@coinbase/onchainkit/identity';
-import { color } from '@coinbase/onchainkit/theme';
+//import { color } from '@coinbase/onchainkit/src/';
 import { ethers } from 'ethers'; // Import ethers.js
-
-const provider = new ethers.providers.Web3Provider(window.ethereum);
 
 export default function ConnectWalletWithEthers() {
   const [provider, setProvider] = useState(null); // Provider state
-  const [walletAddress, setWalletAddress] = useState(null); // Wallet address state
-  const [balance, setBalance] = useState(null); // User's balance state
+  const [walletAddress, setWalletAddress] = useState<string|null>(null); // Wallet address state
+  const [balance, setBalance] = useState<string|null>(''); // User's balance state
 
   // Set up the provider when wallet is connected
   useEffect(() => {
     if (window.ethereum) {
-      const ethersProvider = provider
-    }
+      new ethers.providers.Web3Provider(window.ethereum);    }
   }, []);
 
   // Handle wallet connection
@@ -36,8 +34,7 @@ export default function ConnectWalletWithEthers() {
       try {
         // Request wallet connection
         await window.ethereum.request({ method: 'eth_requestAccounts' });
-        const ethersProvider = provider
-        // setProvider(ethersProvider);
+        const ethersProvider = new ethers.providers.Web3Provider(window.ethereum)
 
         // Get wallet address
         const signer = ethersProvider.getSigner();
@@ -60,14 +57,14 @@ export default function ConnectWalletWithEthers() {
   const handleDisconnectWallet = () => {
     setProvider(null);
     setWalletAddress(null);
-    setBalance(null);
+    setBalance('');
   };
 
   return (
     <div className="flex justify-end">
       <Wallet>
         {/* Connect Wallet Button */}
-        <ConnectWallet onClick={handleConnectWallet}>
+        <ConnectWallet onConnect={handleConnectWallet}>
           <Avatar className="h-6 w-6" />
           <Name />
         </ConnectWallet>
@@ -78,7 +75,7 @@ export default function ConnectWalletWithEthers() {
             <Identity className="px-4 pt-3 pb-2" hasCopyAddressOnClick>
               <Avatar />
               <Name />
-              <Address className={color.foregroundMuted} />
+              <Address className={'any-color'} />
               <div className="mt-2">
                 {/* Display balance */}
                 <p>Balance: {balance} ETH</p> {/* Display balance in ETH */}
@@ -88,7 +85,7 @@ export default function ConnectWalletWithEthers() {
 
           {/* Disconnect Wallet */}
           {walletAddress && (
-            <WalletDropdownDisconnect onClick={handleDisconnectWallet} />
+            <WalletDropdownDisconnect />
           )}
         </WalletDropdown>
       </Wallet>

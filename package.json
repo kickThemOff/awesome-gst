@@ -23,7 +23,7 @@
     "@coinbase/onchainkit": "^0.38.0",
     "autoprefixer": "^10.4.21",
     "axios": "^1.8.4",
-    "ethers": "^6.13.5",
+    "ethers": "^5.7.2",
     "next": "^15.2.3",
     "postcss": "^8.5.3",
     "react": "^19.0.0",
@@ -33,6 +33,7 @@
     "wagmi": "^2.14.15"
   },
   "devDependencies": {
+    "@types/node": "22.13.11",
     "@types/react": "19.0.12",
     "typescript": "5.8.2"
   }
