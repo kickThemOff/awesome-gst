@@ -1,0 +1,14 @@
+.tax-free-header {
+    position: static;  /* Position it at the top left */
+    top: 20px;           /* Adjust the top padding as needed */
+    left: 20px;          /* Adjust the left padding as needed */
+    color: #2D3748;      /* Set the color */
+    font-family: Helvetica;  /* Set the font */
+    font-size: 32px;     /* Set the font size */
+    font-style: normal;  /* Set the font style */
+    font-weight: 700;    /* Set the font weight */
+    line-height: 150%;   /* Set the line height (48px) */
+    padding: 16px;       /* Adjust padding as needed */
+  }
+
+  
