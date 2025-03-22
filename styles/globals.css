@@ -1,3 +1,28 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #93a3c4; 
+  }
+  
+  .menu-bars {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .nav-link {
+    font-size: 1.125rem; 
+    font-weight: 600;
+    text-decoration: none;
+    color: black;
+  }
+  
+  .right-nav {
+    display: flex;
+    align-items: center;
+  }
