@@ -6,7 +6,6 @@ import {
   Wallet,
   WalletDropdown,
   WalletDropdownDisconnect,
-
 } from '@coinbase/onchainkit/wallet';
 import {
   Address,
@@ -22,10 +21,31 @@ export default function ConnectWalletWithEthers() {
   const [walletAddress, setWalletAddress] = useState<string|null>(null); // Wallet address state
   const [balance, setBalance] = useState<string|null>(''); // User's balance state
 
-  // Set up the provider when wallet is connected
+  // Set up event listeners for wallet changes
   useEffect(() => {
     if (window.ethereum) {
-      new ethers.providers.Web3Provider(window.ethereum);    }
+      // Handle account changes
+      window.ethereum.on('accountsChanged', (accounts: string[]) => {
+        if (accounts.length === 0) {
+          // User disconnected their wallet
+          handleDisconnectWallet();
+        } else {
+          // User switched accounts
+          setWalletAddress(accounts[0]);
+        }
+      });
+
+      // Handle chain changes
+      window.ethereum.on('chainChanged', () => {
+        window.location.reload();
+      });
+
+      // Cleanup listeners on unmount
+      return () => {
+        window.ethereum.removeListener('accountsChanged', handleDisconnectWallet);
+        window.ethereum.removeListener('chainChanged', () => window.location.reload());
+      };
+    }
   }, []);
 
   // Handle wallet connection
@@ -34,7 +54,8 @@ export default function ConnectWalletWithEthers() {
       try {
         // Request wallet connection
         await window.ethereum.request({ method: 'eth_requestAccounts' });
-        const ethersProvider = new ethers.providers.Web3Provider(window.ethereum)
+        const ethersProvider = new ethers.providers.Web3Provider(window.ethereum);
+        setProvider(ethersProvider);
 
         // Get wallet address
         const signer = ethersProvider.getSigner();
@@ -54,10 +75,27 @@ export default function ConnectWalletWithEthers() {
   };
 
   // Handle wallet disconnect
-  const handleDisconnectWallet = () => {
-    setProvider(null);
-    setWalletAddress(null);
-    setBalance('');
+  const handleDisconnectWallet = async () => {
+    try {
+      // Reset states
+      setProvider(null);
+      setWalletAddress(null);
+      setBalance('');
+      
+      // Clear any stored wallet data
+      localStorage.removeItem('walletAddress');
+      localStorage.removeItem('walletBalance');
+      
+      // If using MetaMask, you can also request account disconnection
+      if (window.ethereum) {
+        await window.ethereum.request({
+          method: "eth_requestAccounts",
+          params: [{ eth_accounts: {} }],
+        });
+      }
+    } catch (error) {
+      console.error('Error disconnecting wallet:', error);
+    }
   };
 
   return (
@@ -85,7 +123,7 @@ export default function ConnectWalletWithEthers() {
 
           {/* Disconnect Wallet */}
           {walletAddress && (
-            <WalletDropdownDisconnect />
+            <WalletDropdownDisconnect onDisconnect={handleDisconnectWallet} />
           )}
         </WalletDropdown>
       </Wallet>
