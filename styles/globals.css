@@ -177,6 +177,13 @@ h1 {
     line-height: 150%;   /* Set the line height (48px) */
     padding: 16px;       /* Adjust padding as needed */
   }
-  
 
-  
+  .green-text {
+    color: green;
+    font-weight:bold;
+  }
+
+  .red-text {
+    color: red;
+    font-weight: bold;
+  } 

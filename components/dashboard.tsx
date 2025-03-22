@@ -6,11 +6,16 @@ function Invoice() {
         { id: 3, amount: "1250.75", from: "GadgetStore" },
     ];
 
+    const transaction = [
+        { id: 1, name: "Supplier", GST: "-GST80", amount: "-80"},
+        { id: 2, name: "Stripe", GST: "+GST80", amount: "+80" },
+        { id: 3, name: "Stripe", GST: "+GST80", amount: "+80" },
+    ];
 
     return (
       <>
         {/* Tax-Free Header outside the container */}
-        <h1 className="tax-free-header">Tax-Free</h1>
+        <h1 className="tax-free-header">WhyDefi</h1>
         <p className="update-color">update on 26 March 2025, at 13:45 PM </p>
 
         {/* Invoice Area */}
@@ -43,14 +48,20 @@ function Invoice() {
                 <p>Transactions</p>
             </div>
 
-            {invoices.map((invoice) => (
-            <div key={invoices.id} className="child-container">
+            {transaction.map((transaction) => (
+            <div key={transaction.id} className="transaction-container">
                 <p>
-                    <span className="amount">{invoice.amount}</span> 
-                    <span className="currency">{invoice.currency}</span>
+                    <span className="amount">{transaction.name}</span> 
+                    <span className="currency"></span>
                 </p>
                 <div className="smaller-container">
-                    <p>Supplier1</p>
+                    <span className={`amount ${transaction.GST.startsWith('+') ? 'green-text' : 'red-text'}`}>
+                        {transaction.GST}
+                    </span>
+                    <div className="amount">
+                        Account: {transaction.amount}
+                    </div>
+                    <p>dsjkfsldasdsadsadsadsadasfdsfdsfdsfdsfdsfhdfkjshfshdjkfhdskfhkdshfdshj</p>
                 </div>
             </div>
             ))}
