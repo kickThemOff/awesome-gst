@@ -1,0 +1,224 @@
+/* Accounts Section Styles */
+div{
+    color: black;
+}
+.accounts-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* Account Card Styles */
+
+.accounts-container{
+    /* color: black; */
+}
+.account {
+    /* color: black; */
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-sizing: border-box;
+}
+
+.main-account {
+    border-radius: 15px;
+    background: url('/public/accountBackground.png') no-repeat center center;
+        background-size: cover;
+    color: white;
+}
+
+.gst-account {
+    border-radius: 15px;
+        background: linear-gradient(82deg, #EADEFF 2.25%, #FBFFCA 79.87%);
+}
+
+.defi-account,
+.tax-account {
+    /* background-color: black; */
+    border: 1px solid #e2e8f0;
+}
+
+/* Account Headers */
+.account-header {
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.account-title {
+    font-weight: 500;
+    margin: 0;
+   color: black;
+}
+
+.account-title-main{
+    color: white;
+    font-weight: 500;
+    margin: 0;
+}
+
+.account-domain {
+    margin: 0 0 0 0.5rem;
+    font-size: 0.75rem;
+    color: #a0aec0;
+}
+
+.main-account .account-domain {
+    /* color: black;
+     */
+}
+
+/* Balance Display */
+.account-balance {
+    font-size: 1.875rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: black;
+}
+.account-balance-main{
+    font-size: 1.875rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+    color: white;
+}
+
+.account-balance-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.currency {
+    font-size: 0.875rem;
+    font-weight: normal;
+}
+
+.mini-currency {
+    font-size: 0.75rem;
+}
+
+/* Interest Info */
+.interest-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.interest-label {
+    font-size: 0.875rem;
+}
+
+.more-link {
+    font-size: 0.75rem;
+    color: #a0aec0;
+}
+
+.interest-amount {
+    color: #48bb78;
+}
+
+.timestamp {
+    font-size: 0.75rem;
+    color: #a0aec0;
+}
+
+/* Tax Info */
+.tax-details-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tax-label {
+    font-size: 0.875rem;
+}
+
+.tax-date {
+    font-weight: 500;
+    color: #276749;
+}
+
+.status-label {
+    font-size: 0.875rem;
+    margin-right: 0.5rem;
+}
+
+.check-icon {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    position: relative;
+}
+
+.check-icon:after {
+    content: '';
+    position: absolute;
+    width: 5px;
+    height: 10px;
+    border-right: 2px solid #48bb78;
+    border-bottom: 2px solid #48bb78;
+    transform: rotate(45deg);
+    top: 0;
+    left: 5px;
+}
+
+/* Account actions */
+.account-actions,
+.tax-status {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.account-details-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0.5rem;
+}
+
+/* Button styles */
+.btn {
+    padding: 0.25rem 1rem;
+    border-radius: 0.25rem;
+    font-size: 0.875rem;
+    cursor: pointer;
+    border: none;
+}
+
+.btn-light {
+    background-color: white;
+    color: black;
+}
+
+.btn-outline {
+    background-color: transparent;
+    
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+  
+}
+
+.btn-dark {
+    background-color: #1a202c;
+    color: white;
+   
+}
+
+.btn-bordered {
+    background-color: white;
+    border: 1px solid #e2e8f0;
+    color: black;
+}
+
+.btn-small {
+    padding: 0.25rem 0.75rem;
+    font-size: 0.75rem;
+}
+
+/* Placeholder for icons */
+.icon-placeholder {
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+}
