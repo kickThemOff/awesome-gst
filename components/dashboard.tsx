@@ -13,9 +13,9 @@ function Invoice() {
     ];
 
     const transaction = [
-        { id: 1, name: "Supplier", GST: "-GST80", amount: "-80"},
-        { id: 2, name: "Stripe", GST: "+GST80", amount: "+80" },
-        { id: 3, name: "Stripe", GST: "+GST80", amount: "+80" },
+        { id: 1, name: "Supplier", GST: "-GST30.11", amount: "-263.11", timestamp: "23/03/2025, 10:30:45 AM" }, 
+        { id: 2, name: "Stripe", GST: "+GST60.23", amount: "+543.425", timestamp: "20/03/2025, 10:30:45 AM" },
+        { id: 3, name: "Stripe", GST: "+GST19.24", amount: "+145.134", timestamp: "17/03/2025, 10:30:45 AM" }
     ];
 
     const fixedAddress = "0x660594b90a8ea7F1D0b43bEAB4Fe3c734dc20A7A"; // Replace with the actual Ethereum address
@@ -87,10 +87,14 @@ function Invoice() {
                     <span className={`amount ${transaction.GST.startsWith('+') ? 'green-text' : 'red-text'}`}>
                         {transaction.GST}
                     </span>
+                        <div className="time">
+                           {transaction.timestamp}
+                        </div>
+
                     <div className="amount">
-                        Account: {transaction.amount}
+                        Main Account: {transaction.amount}
                     </div>
-                    <p>THISISFORSTYLINGDONTREMOVEITTHISISFORSTYLINGDONTREMOVEITT</p>
+                    
                 </div>
             </div>
             ))}

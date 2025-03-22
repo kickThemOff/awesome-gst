@@ -1,7 +1,7 @@
 .transaction-container {
     display: flex; 
     flex-direction: column; /* Stack items vertically */
-    width: 100%; /* Makes it stretch to the full width of its parent */
+    width: 2000px; /* Makes it stretch to the full width of its parent */
     box-sizing: border-box;
     padding: 20px;
     background-color: #f0f0f0;
