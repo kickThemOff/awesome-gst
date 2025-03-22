@@ -1,4 +1,12 @@
 function Invoice() {
+
+    const invoices = [
+        { id: 1, amount: "1781.31", from: "Smith.co" },
+        { id: 2, amount: "2399.99", from: "TechWorld" },
+        { id: 3, amount: "1250.75", from: "GadgetStore" },
+    ];
+
+
     return (
       <>
         {/* Tax-Free Header outside the container */}
@@ -11,48 +19,43 @@ function Invoice() {
             <p>Invoices</p>
             <button className="btn">Make a payment</button>
         </div>
-        <div className="child-container">
-            <p>
-                <span className="amount">1781.31</span> 
-                <span className="currency">NZDD</span>
-            </p>
-            <div className="smaller-container">
-                <p>price</p>
+
+        {invoices.map((invoice) => (
+            <div key={invoices.id} className="child-container">
+                <p>
+                    <span className="amount">{invoice.amount}</span> 
+                    <span className="currency">NZDD</span>
+                </p>
+                <div className="smaller-container">
+                    <p>.</p>
+                </div>
+                <div className="bottom-container">
+                    <span className="color">From:</span>
+                    <span className="color">Smith.co</span>
+                    <button className="reject-button">Reject</button>
+                    <button className="reject-button">Pay</button>
+                </div>
             </div>
-            <div className="bottom-container">
-                <span className="color">From:</span>
-                <span className="color">Smith.co</span>
-                <button className="reject-button">Reject</button>
-                <button className="reject-button">Pay</button>
-            </div>
+            ))}
         </div>
-        <div className="child-container">
-            <p>
-                <span className="amount">23.42</span> 
-                <span className="currency">NZDD</span>
-            </p>
-            <div className="smaller-container">
-                <p>price</p>
+        <div className="invoice-area"></div>
+            <div className="invoice-heading">
+                <p>Transactions</p>
             </div>
-            <div className="bottom-container">
-                <span className="color">From:</span>
-                <span className="color">Paul Company</span>
-                <button className="reject-button">Reject</button>
-                <button className="reject-button">Pay</button>
+
+            {invoices.map((invoice) => (
+            <div key={invoices.id} className="child-container">
+                <p>
+                    <span className="amount">{invoice.amount}</span> 
+                    <span className="currency">{invoice.currency}</span>
+                </p>
+                <div className="smaller-container">
+                    <p>Supplier1</p>
+                </div>
             </div>
-        </div>
-        {/* Add your invoice content here */}
-      </div>
+            ))}
       </>
     );
   }
-
   
   export default Invoice;
-
-  function Transaction() {
-    return (
-        <h1 className="Transaction">Transaction</h1>
-    )
-  }
-  
