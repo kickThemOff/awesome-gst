@@ -70,7 +70,8 @@ body {
     flex: 10px;                 /* Flex-grow, flex-shrink, flex-basis */
     border-radius: 16px;
     text-align: left;              /* Center text inside each item */
-    min-width: 150px;
+    width:655px;
+    /* min-width: 150px; */
 }
 
 .reject-button{
